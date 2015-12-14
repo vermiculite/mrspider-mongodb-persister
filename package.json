@@ -1,0 +1,24 @@
+{
+  "name": "mrspider-mongodb-persister",
+  "version": "0.0.1",
+  "description": "mrspider middleware mongodb persistence",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mrspider",
+    "middleware",
+    "mongo",
+    "db",
+    "persist",
+    "store"
+  ],
+  "author": "Sean Hayes <seanowenhayes@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^3.4.1",
+    "istanbul": "^0.4.1",
+    "mocha": "^2.3.4"
+  }
+}
