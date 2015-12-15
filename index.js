@@ -1,11 +1,14 @@
+var validate = require('validate');
+var MongoClient = require('mongodb').MongoClient;
+
 module.exports = function(options) {
-    validate(options);
+    validateOptions(options);
     return function (page, spider, next) {
         next();
     }
 };
 
-function validate (options) {
+function validateOptions (options) {
     if(!options) {
         throw new Error('No options passed to mrspider mongodb persister');
     }
