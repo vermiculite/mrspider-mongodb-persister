@@ -22,7 +22,6 @@
     "mocha": "^2.3.4"
   },
   "dependencies": {
-    "mongodb": "^2.0.52",
-    "validate": "^3.0.1"
+    "mongodb": "^2.0.52"
   }
 }

@@ -16,11 +16,9 @@ describe('mrspider mongodb persister', function () {
         validSpider = {};
         validNext = {};
         validParams = {
-            db: {
-                url: 'mongodb://localhost:27017/myproject',
-                options: {},
-                collection: 'crawlresults'
-            }
+            url: 'mongodb://localhost:27017/myproject',
+            options: {},
+            collection: 'crawlresults'
         };
     });
 
@@ -30,32 +28,24 @@ describe('mrspider mongodb persister', function () {
         persister(validPage, validSpider, done);
     });
 
-    it('should throw an error given no options', function() {
-        (function() {
+    it('should throw an error given no options', function () {
+        (function () {
             var persister = mongodbPersister();
         }).should.throw(Error);
     });
 
-    it('should throw an error given no db property in the options', function() {
-        delete validParams.db;
-        (function() {
+
+    it('should throw an error given no url db property in the options', function () {
+        delete validParams.url;
+        (function () {
             var persister = mongodbPersister(validParams);
         }).should.throw(Error);
     });
 
-    it('should throw an error given no url db property in the options', function() {
-        delete validParams.db.url;
-        (function() {
+    it('should throw an error given no collection db property in the options', function () {
+        delete validParams.collection;
+        (function () {
             var persister = mongodbPersister(validParams);
         }).should.throw(Error);
     });
-
-    it('should throw an error given no collection db property in the options', function() {
-        delete validParams.db.collection;
-        (function() {
-            var persister = mongodbPersister(validParams);
-        }).should.throw(Error);
-    });
-
-
 });
