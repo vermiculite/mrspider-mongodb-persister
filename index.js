@@ -3,7 +3,16 @@ var MongoClient = require('mongodb').MongoClient;
 module.exports = function(options) {
     validateOptions(options);
     return function (page, spider, next) {
-        next();
+        if(page.valid) {
+            MongoClient.connect(options.url, function(err, db) {
+                db.collection(option.collection).insertOne(page.data, function(err, result) {
+                    db.close();
+                    next();
+                });
+            });
+        }
+
+
     }
 };
 

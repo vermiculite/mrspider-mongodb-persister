@@ -17,8 +17,7 @@ describe('mrspider mongodb persister', function () {
         validNext = {};
         validParams = {
             url: 'mongodb://localhost:27017/myproject',
-            options: {},
-            collection: 'crawlresults'
+            collection: 'mycollection'
         };
     });
 
@@ -35,7 +34,7 @@ describe('mrspider mongodb persister', function () {
     });
 
 
-    it('should throw an error given no url db property in the options', function () {
+    it('should throw an error given no url property in the options', function () {
         delete validParams.url;
         (function () {
             var persister = mongodbPersister(validParams);
