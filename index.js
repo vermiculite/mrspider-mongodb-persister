@@ -9,7 +9,7 @@ module.exports = function(options) {
                     console.err('could not connect to the database at %s', options.url);
                     return next();
                 }
-                db.collection(option.collection).insertOne(page.data, function(err, result) {
+                db.collection(options.collection).insertOne(page.data, function(err, result) {
                     db.close();
                     next();
                 });
