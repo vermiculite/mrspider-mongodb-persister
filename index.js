@@ -6,7 +6,7 @@ module.exports = function(options) {
         if(page.valid) {
             MongoClient.connect(options.url, function(err, db) {
                 if(err) {
-                    console.err('could not connect to the database at %s', options.url);
+                    console.log('could not connect to the database at %s', options.url);
                     return next();
                 }
                 db.collection(options.collection).insertOne(page.data, function(err, result) {
