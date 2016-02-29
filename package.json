@@ -4,7 +4,10 @@
   "description": "mrspider middleware mongodb persistence",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/mocha/bin/_mocha --ui tdd --reporter spec --recursive test"
+    "test": "mocha --recursive",
+    "test-watch": "mocha --recursive --watch",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha --check-leaks test/ --recursive",
+    "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*"
   },
   "keywords": [
     "mrspider",
@@ -22,6 +25,7 @@
     "mocha": "^2.3.4"
   },
   "dependencies": {
-    "mongodb": "^2.0.52"
+    "mongodb": "^2.0.52",
+    "through2": "^2.0.1"
   }
 }

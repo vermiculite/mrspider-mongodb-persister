@@ -19,32 +19,18 @@ describe('mrspider mongodb persister', function () {
             url: 'mongodb://localhost:27017/myproject',
             collection: 'mycollection'
         };
+        validPage.spider = validSpider;
     });
 
 
-    it('should call next', function (done) {
+    it('should call next given an invalid page', function (done) {
         var persister = mongodbPersister(validParams);
-        persister(validPage, validSpider, done);
+        persister._transform(validPage, done);
     });
-
-    it('should throw an error given no options', function () {
-        (function () {
-            var persister = mongodbPersister();
-        }).should.throw(Error);
-    });
-
-
-    it('should throw an error given no url property in the options', function () {
-        delete validParams.url;
-        (function () {
-            var persister = mongodbPersister(validParams);
-        }).should.throw(Error);
-    });
-
-    it('should throw an error given no collection db property in the options', function () {
-        delete validParams.collection;
-        (function () {
-            var persister = mongodbPersister(validParams);
-        }).should.throw(Error);
+    
+    it('should call next given an valid page', function (done) {
+        var persister = mongodbPersister(validParams);
+        validPage.valid = true;
+        persister._transform(validPage, done);
     });
 });
