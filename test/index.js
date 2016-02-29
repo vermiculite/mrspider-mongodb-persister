@@ -25,12 +25,12 @@ describe('mrspider mongodb persister', function () {
 
     it('should call next given an invalid page', function (done) {
         var persister = mongodbPersister(validParams);
-        persister._transform(validPage, done);
+        persister._transform(validPage, 'utf8', done);
     });
     
     it('should call next given an valid page', function (done) {
         var persister = mongodbPersister(validParams);
         validPage.valid = true;
-        persister._transform(validPage, done);
+        persister._transform(validPage, 'utf8', done);
     });
 });

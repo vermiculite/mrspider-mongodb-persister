@@ -4,7 +4,7 @@ let through2 = require('through2');
 var MongoClient = require('mongodb').MongoClient;
 
 module.exports = function(options) {
-    return through2.obj(function (page, next) {
+    return through2.obj(function (page, enc, next) {
         if(page.valid) {
             MongoClient.connect(options.url, function(err, db) {
                 if(err) {
